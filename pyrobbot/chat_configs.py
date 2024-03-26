@@ -124,11 +124,11 @@ class ChatOptions(OpenAiApiCallOptions):
         default=f"{GeneralDefinitions.PACKAGE_NAME}_system",
         description="Name of the chat's system",
     )
-    ai_instructions: tuple[str, ...] = Field(
-        default=(
+    ai_instructions: str = Field(
+        default='\n'.join((
             "You answer correctly.",
             "You do not lie or make up information unless explicitly asked to do so.",
-        ),
+        )),
         description="Initial instructions for the AI",
     )
     context_model: Literal[tuple(PRICE_PER_K_TOKENS_EMBEDDINGS)] = Field(
